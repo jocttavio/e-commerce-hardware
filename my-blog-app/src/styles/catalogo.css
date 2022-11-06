@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container-catalogo{
+@apply grid grid-cols-3  justify-center
+}
+
+.header-catalogo{
+@apply flex justify-evenly items-center h-32  border-b-orange-400 border-2 border-collapse
+}

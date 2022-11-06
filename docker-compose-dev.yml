@@ -1,0 +1,62 @@
+version: "3.9"
+networks:
+  docker-network:
+    driver: bridge
+  npm-nw:
+    external: true
+services:
+  my-blog-app:
+    container_name: my-blog-app
+    build:
+      context: ./my-blog-app
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./my-blog-app:/app
+    restart: always
+    links:
+      - backend-blog
+    networks:
+      - npm-nw
+      - docker-network
+  backend-blog:
+    container_name: backend-blog
+    build:
+      context: ./backend-blog
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend-blog:/app
+    restart: always
+    networks:
+      - npm-nw
+      - docker-network
+    links:
+      - postgres
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+    networks:
+      - docker-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "80:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PG_USERNAME}
+      - PGADMIN_DEFAULT_PASSWORD=${PG_PASSWORD}
+    networks:
+      - docker-network
+
+volumes:
+  postgres-data:

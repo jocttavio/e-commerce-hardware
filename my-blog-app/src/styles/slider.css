@@ -1,0 +1,27 @@
+
+.typing_effect, .text-shadow{
+    text-shadow: -2px -2px 2px rgba(150, 150, 150, 0.67);
+}
+
+/*EFECTO MAQUINA DE ESCRIBIR*/
+.typing_effect {  
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #FFFF;
+    animation: typing 4.3s steps(45)  infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
