@@ -1,0 +1,128 @@
+TABLAS DE POSTGRES---
+
+
+
+create table Herreria(
+ID_ProductH integer primary key,
+Nombre_Product varchar(50),
+Price_Old integer,
+Price_Now integer,
+Description varchar(100),
+Stars integer,
+Image_Name varchar(30)
+)
+---
+create table Plomeria(
+ID_ProductP integer primary key,
+Nombre_Product varchar(50),
+Price_Old integer,
+Price_Now integer,
+Description varchar(100),
+Stars integer,
+Image_Name varchar(30)
+)
+---
+create table Electricidad(
+ID_ProductE integer primary key,
+Nombre_Product varchar(50),
+Price_Old integer,
+Price_Now integer,
+Description varchar(100),
+Stars integer,
+Image_Name varchar(30)
+)
+
+---
+create table Albañileria(
+ID_ProductA integer primary key,
+Nombre_Product varchar(50),
+Price_Old integer,
+Price_Now integer,
+Description varchar(100),
+Stars integer,
+Image_Name varchar(30)
+)
+
+
+
+
+-----FIN
+
+
+
+JSON PARA INSERTAR EN PLOMERIA: https://abacentro.com.mx/los-10-productos-mas-usados-en-plomeria/
+Insertar en plomeria
+http://localhost:4000/plomeria 
+{
+     "id_productp":1,
+      "nombre_product":"Destapador",
+      "price_old":300,
+      "price_now":200,
+      "description":"Es el mejor producto..",
+      "stars":4,
+      "image_name": "tools.png"
+}
+Insertar en herreria
+MÁQUINA PARA SOLDAR. Todo herrero debe conocer la máquina de soldar. ...
+ESMERILADORA. La esmeriladora va de la mano con la máquina de soldar. ...
+ALICATE. ...
+SIERRA TRONZADORA O CORTADORA DE METALES. ...
+CEPILLO DE ALAMBRE. ...
+PRENSAS O SARGENTOS. ...
+http://localhost:4000/herreria
+JSON PARA INSERTAR EN Herreria:
+
+{
+     "id_producth":1,
+      "nombre_product":"Destapador",
+      "price_old":300,
+      "price_now":200,
+      "description":"Es el mejor producto..",
+      "stars":4,
+      "image_name": "tools.png"
+}
+
+Insertar en electricidad
+http://localhost:4000/electricidad 
+
+JSON PARA INSERTAR EN electricidad:
+
+{
+     "id_producte":1,
+      "nombre_product":"Destapador",
+      "price_old":300,
+      "price_now":200,
+      "description":"Es el mejor producto..",
+      "stars":4,
+      "image_name": "tools.png"
+}
+
+JSON PARA INSERTAR EN albañileria:
+Insertar en alba
+http://localhost:4000/alba
+{
+     "id_producta":1,
+      "nombre_product":"Destapador",
+      "price_old":300,
+      "price_now":200,
+      "description":"Es el mejor producto..",
+      "stars":4,
+      "image_name": "tools.png"
+}
+
+DB_USER = root
+DB_PASSWORD = password2022
+DB_HOST = '172.20.0.1'
+DB_PORT = 5432
+DB_DATABASE = Ferreteria
+
+
+
+docker-compose 
+DB_DATABASE=Ferreteria
+DB_USERNAME=root
+DB_PASSWORD=password2022
+
+PG_USERNAME=admin@domain.com
+PG_PASSWORD=password
+

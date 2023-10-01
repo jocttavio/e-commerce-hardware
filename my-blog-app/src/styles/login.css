@@ -1,0 +1,9 @@
+@import './index.css';
+
+.container-form{
+    @apply flex flex-col justify-center items-center gap-6 rounded-3xl bg-[#ffffff] shadow-2xl;
+}
+
+.TitleLogin{
+    @apply font-serif font-bold text-2xl text-center;
+}

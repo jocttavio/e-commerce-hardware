@@ -19,20 +19,20 @@ export const Blog = () => {
     <main>
       {/*SECCION "HISTORIA DELL"*/}
       <section className="pb-20 mt-16 contenedor">
-        <div className="grid lg:grid-cols-2 grid-cols-1 mx-10 gap-12">
+        <div className="grid grid-cols-1 gap-12 mx-10 lg:grid-cols-2">
           {/*COLUMNA 1 (TEXTO)*/}
           <div className="flex flex-col justify-center">
             <div className="text-center">
-              <h3 className="font-bold xl:text-4xl text-2xl">Albañilería</h3>
+              <h3 className="text-2xl font-bold xl:text-4xl">Albañilería</h3>
             </div>
 
             <section className="text-justify">
-              <h4 className="mt-10 md:text-2xl text-lg font-semibold">
+              <h4 className="mt-10 text-lg font-semibold md:text-2xl">
                 La albañilería se define como la especialidad de construir
                 estructuras a partir de objetos individuales que se unen y pegan
                 usando mortero u otros materiales capaces de endurecer.
               </h4>
-              <p className="py-6 md:text-xl sm:text-base text-sm">
+              <p className="py-6 text-sm md:text-xl sm:text-base">
                 El trabajo de albañilería es uno de los trabajos más importantes
                 en construcción y es esencial en la vida del hombre, estando
                 presente desde los tiempos más antiguos. La albañilería surgió
@@ -49,8 +49,8 @@ export const Blog = () => {
           </div>
 
           {/*COLUMNA 2 (IMAGEN)*/}
-          <div className="lg:mt-10 h-full">
-            <div className="px-3 py-2 mx-auto w-fit drop-shadow-xl border-4 rounded-md">
+          <div className="h-full lg:mt-10">
+            <div className="px-3 py-2 mx-auto border-4 rounded-md w-fit drop-shadow-xl">
               <picture>
                 <img
                   className="w-full object-cover max-h-[500px] min-h-[300px] rounded-md"
@@ -61,8 +61,8 @@ export const Blog = () => {
               </picture>
             </div>
 
-            <footer className="mt-6 mx-24 text-center text-sm text-slate-500">
-              <i className="sm:text-base text-xs">
+            <footer className="mx-24 mt-6 text-sm text-center text-slate-500">
+              <i className="text-xs sm:text-base">
                 La albañilería construye y restaura muros, paredes, monumentos y
                 partes de edificios, garages y casas.
               </i>
@@ -71,18 +71,18 @@ export const Blog = () => {
         </div>
       </section>
       {/*Seccion*/}
-      <section className="flex flex-col justify-center antialiased bg-gray-900   text-gray-200 min-h-screen">
-        <div className="max-w-6xl mx-auto p-4 sm:px-6 h-full mb-10 mt-20">
-          <article className="max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
+      <section className="flex flex-col justify-center min-h-screen antialiased text-gray-200 bg-gray-900">
+        <div className="h-full max-w-6xl p-4 mx-auto mt-20 mb-10 sm:px-6">
+          <article className="grid items-center max-w-sm gap-6 mx-auto md:max-w-none md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16">
             <a className="relative block group" href="#0">
               <div
-                className="absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none"
+                className="absolute inset-0 hidden transition duration-700 ease-out transform bg-gray-800 pointer-events-none md:block md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0"
                 aria-hidden="true"
               ></div>
 
               <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
                 <img
-                  className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
+                  className="absolute inset-0 object-cover w-full h-full transition duration-700 ease-out transform hover:scale-105"
                   loading="lazy"
                   src={require("../img/alba2.png")}
                   width="540"
@@ -95,11 +95,11 @@ export const Blog = () => {
             <div>
               <header>
                 <div className="mb-3"></div>
-                <h3 className="text-2xl lg:text-3xl font-bold leading-tight mb-2">
+                <h3 className="mb-2 text-2xl font-bold leading-tight lg:text-3xl">
                   La Albañilería en la Construcción
                 </h3>
               </header>
-              <p className="text-lg text-justify text-gray-300 flex-grow">
+              <p className="flex-grow text-lg text-justify text-gray-300">
                 Los albañiles normalmente utilizan recipientes dónde mezclan los
                 elementos para formar el mortero. Además normalmente utilizan
                 los ladrillos saturados de agua, una plana de madera y un juego
@@ -119,10 +119,10 @@ export const Blog = () => {
           
         </div>
         <div className="mb-3"></div>
-        <h3 className="text-center text-2xl lg:text-3xl font-bold leading-tight mb-2">
+        {/* <h3 className="mb-2 text-2xl font-bold leading-tight text-center lg:text-3xl">
           Nuestros Productos
         </h3>
-        <div className="container-catalogo mb-10">
+        <div className="mb-10 container-catalogo">
           {product.map((singleProduct, index) => (
             <div key={index}>
               <Cards
@@ -135,7 +135,7 @@ export const Blog = () => {
               />
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
   

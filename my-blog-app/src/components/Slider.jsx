@@ -4,24 +4,30 @@ import '../styles/slider.css'
 export const Slider = () => {
    
     const images = [
+        { url: require('../img/slider_4.jpeg') },
         { url: require('../img/slider_1.webp') },
         { url: require('../img/slider_2.jpg') },
         { url: require('../img/slider_3.jpg') },
-        { url: require('../img/slider_4.jpeg') }
     ];
 
     return (
         <div className='relative'>
-             <div className='line_x items-center absolute z-20 left-20 top-1/3'>
-              <p className='typing_effect pl-10 uppercase text-6xl text-white font-bold my-8'>Todo lo que buscas en un solo lugar!<span>&#160;</span></p>
+             <div className='absolute z-20 items-center line_x left-20 top-1/3'>
+              <p className='pl-10 my-8 text-6xl font-bold text-white uppercase typing_effect'>Todo lo que buscas en un solo lugar!<span>&#160;</span></p>
             </div>
+            <div className='w-[1515px]'>
             <SimpleImageSlider
-                width={1580}
+                width={'100%'}
                 height={600}
                 images={images}
                 showBullets={true}
                 showNavs={true}
+                autoPlay={true}
+                // loop={true}
+// Tiempo de duracion del slider
+                autoPlayDelay={3}
             />
+            </div>
         </div>
     )
 }
