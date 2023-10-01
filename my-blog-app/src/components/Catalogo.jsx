@@ -5,7 +5,7 @@ import "../styles/catalogo.css"
 import { Cards } from './Cards'
 
 
-
+// 
 export const Catalogo = ({title,categoric,allProducts,setAllProducts,total,setTotal,countProducts,setCountProducts,allPedido, setAllPedido}) => {
     
     const [product,setProduct] = useState([])

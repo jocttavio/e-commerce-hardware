@@ -2,7 +2,7 @@ import React from "react";
 import { Cards } from "./Cards";
 import { useEffect } from "react";
 import { useState } from "react";
-
+// 
 export const Blog = () => {
   const [product, setProduct] = useState([]);
   //Peticion al servidor

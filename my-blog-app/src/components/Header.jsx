@@ -67,7 +67,7 @@ export const Header = () => {
     setTotal(0);
     setCountProducts(0);
   };
-
+// 
   // Comprar productos
   const onPay = async () => {
     try {
