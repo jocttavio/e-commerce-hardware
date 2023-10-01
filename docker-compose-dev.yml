@@ -1,8 +1,14 @@
 version: "3.9"
 networks:
+<<<<<<< HEAD
+  docker-network:
+    driver: bridge
+  net-tecnomex:
+=======
   # docker-network:
   #   driver: bridge
   npm-nw:
+>>>>>>> f7e486c36938a5bb7dea1c1505c5b4e0f8b0c364
     external: true
 services:
   my-blog-app:
@@ -17,6 +23,36 @@ services:
     # links:
     #   - backend-blog
     networks:
+<<<<<<< HEAD
+      - net-tecnomex
+      - docker-network
+  backend-blog:
+    container_name: backend-blog
+    build:
+      context: ./backend-blog
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend-blog:/app
+    networks:
+      - net-tecnomex
+      - docker-network
+    links:
+      - postgres
+  postgres:
+    image: postgres:14.0
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+    networks:
+      - docker-network
+    volumes:
+      - /var/lib/docker/volumes/temporal_db/_data:/var/lib/postgresql/data
+=======
       - npm-nw
       # - docker-network
 #   backend-blog:
@@ -45,6 +81,7 @@ services:
 #       - docker-network
 #     volumes:
 #       - postgres-data:/var/lib/postgresql/data
+>>>>>>> f7e486c36938a5bb7dea1c1505c5b4e0f8b0c364
 
   # pgadmin:
   #   image: dpage/pgadmin4
