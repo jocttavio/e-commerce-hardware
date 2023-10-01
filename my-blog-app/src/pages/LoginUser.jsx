@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 import { expression } from "../helpers/regular_expresion";
 import axios from "axios";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {DB_URL} from './config';
 const LoginUser = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
@@ -29,11 +30,11 @@ const LoginUser = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:4000/validate_account/${credential.useremail},${credential.password}`
+          `${DB_URL}/${credential.useremail},${credential.password}`
         );
         const { data: accountUser } = response;
         const { data: userData } = await axios.get(
-          `http://localhost:4000/get_user/${accountUser.fk_informacion}`
+          `${DB_URL}/get_user/${accountUser.fk_informacion}`
         );
         cookies.set("status_usuario", true, { path: "/" });
             cookies.set("nombre", userData.nombre_usuario, { path: "/" });
