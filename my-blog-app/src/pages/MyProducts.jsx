@@ -21,13 +21,13 @@ export const MyProducts = () => {
 
   const getPedidos = async () => {
     const { data: response } = await axios.get(
-      `http://localhost:4000/pedido/${showSignIn.curp}`
+      `${DB_URL}/pedido/${showSignIn.curp}`
     );
     setPedido(response);
   };
   // const getDetalles = async () => {
   //   const { data: response } = await axios.get(
-  //     `http://localhost:4000/detalles/${id}`
+  //     `${DB_URL}/detalles/${id}`
   //   );
 
   //   setDetalles(response);
@@ -36,7 +36,7 @@ export const MyProducts = () => {
   const handleDetalles = async (id) => {
     console.log(id);
     const { data: response } = await axios.get(
-      `http://localhost:4000/detalles/${id}`
+      `${DB_URL}/detalles/${id}`
     );
     // console.log(response);
     setDetalles(response);
