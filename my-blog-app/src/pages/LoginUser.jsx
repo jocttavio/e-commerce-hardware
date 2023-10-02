@@ -30,11 +30,11 @@ const LoginUser = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `${DB_URL}/${credential.useremail},${credential.password}`
+          `http://localhost:4000/${credential.useremail},${credential.password}`
         );
         const { data: accountUser } = response;
         const { data: userData } = await axios.get(
-          `${DB_URL}/get_user/${accountUser.fk_informacion}`
+          `http://localhost:4000/get_user/${accountUser.fk_informacion}`
         );
         cookies.set("status_usuario", true, { path: "/" });
             cookies.set("nombre", userData.nombre_usuario, { path: "/" });

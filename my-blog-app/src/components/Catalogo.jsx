@@ -11,7 +11,7 @@ export const Catalogo = ({title,categoric,allProducts,setAllProducts,total,setTo
     const [product,setProduct] = useState([])
     //Peticion al servidor
     const loadProduct = async () => {
-        const response = await fetch(`${DB_URL}/productos/${categoric}`);
+        const response = await fetch(`http://localhost:4000/productos/${categoric}`);
         const data = await response.json();
         setProduct(data)
         

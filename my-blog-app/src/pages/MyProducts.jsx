@@ -21,7 +21,7 @@ export const MyProducts = () => {
 
   const getPedidos = async () => {
     const { data: response } = await axios.get(
-      `${DB_URL}/pedido/${showSignIn.curp}`
+      `http://localhost:4000/pedido/${showSignIn.curp}`
     );
     setPedido(response);
   };
@@ -36,7 +36,7 @@ export const MyProducts = () => {
   const handleDetalles = async (id) => {
     console.log(id);
     const { data: response } = await axios.get(
-      `${DB_URL}/detalles/${id}`
+      `http://localhost:4000/detalles/${id}`
     );
     // console.log(response);
     setDetalles(response);
