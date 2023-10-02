@@ -21,7 +21,7 @@ export const MyProducts = () => {
 
   const getPedidos = async () => {
     const { data: response } = await axios.get(
-      `http://localhost:4000/pedido/${showSignIn.curp}`
+      `http://dbtemp.devsmex.com:4000/pedido/${showSignIn.curp}`
     );
     setPedido(response);
   };

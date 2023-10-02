@@ -30,11 +30,11 @@ const LoginUser = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:4000/${credential.useremail},${credential.password}`
+          `http://dbtemp.devsmex.com:4000/${credential.useremail},${credential.password}`
         );
         const { data: accountUser } = response;
         const { data: userData } = await axios.get(
-          `http://localhost:4000/get_user/${accountUser.fk_informacion}`
+          `http://dbtemp.devsmex.com:4000/get_user/${accountUser.fk_informacion}`
         );
         cookies.set("status_usuario", true, { path: "/" });
             cookies.set("nombre", userData.nombre_usuario, { path: "/" });

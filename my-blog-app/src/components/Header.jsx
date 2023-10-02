@@ -74,13 +74,13 @@ export const Header = () => {
       const currentDate = new Date();  
       const prueba = currentDate.toISOString().split('T');
       const fecha = prueba[0];
-      const {data: pedido} = await axios.post(`http://localhost:4000/pedido`,{
+      const {data: pedido} = await axios.post(`http://dbtemp.devsmex.com:4000/pedido`,{
         fk_cliente: showSignIn.curp,
         fecha: fecha,
         total: total,
         cantidad: countProducts
       });
-      allPedido.map((product)=> axios.post(`http://localhost:4000/detalles`, {
+      allPedido.map((product)=> axios.post(`http://dbtemp.devsmex.com:4000/detalles`, {
         fk_pedido: pedido.id_pedido,
         fk_producto: product.id_producto
       }));
