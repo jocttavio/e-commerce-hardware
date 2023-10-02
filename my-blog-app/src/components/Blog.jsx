@@ -7,7 +7,7 @@ export const Blog = () => {
   const [product, setProduct] = useState([]);
   //Peticion al servidor
   const loadProduct = async () => {
-    const response = await fetch(`http://localhost:4000/alba`);
+    const response = await fetch(`http://dbtemp.devsmex.com:4000/alba`);
     const data = await response.json();
     setProduct(data);
   };
