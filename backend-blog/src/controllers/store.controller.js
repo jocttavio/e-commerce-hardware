@@ -4,17 +4,17 @@ const pool = require("../database");
 //crud de la cuenta del usuario
 const getValidateAccount = async (req, res, next) => {
   try {
+    // Los correos no se deben de repetir
     const SQL_query = await pool.query(
       "select id_usuario , tipo_usuario, fk_informacion from Cuenta_Usuario where Correo_usuario = $1 and Password_usuario = $2",
       [req.params.useremail, req.params.password]
     );
 
     if (SQL_query.rows.length === 0)
-      return res.status(404).json({
-        message: "Correo de usuario o contraseña incorrecto(s)",
+      return res.status(200).json({ok:false
       });
 
-    res.status(200).json(SQL_query.rows[0]);
+    res.status(200).json({ok:true, user:SQL_query.rows[0]});
   } catch (error) {
     next(error);
   }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import {REACT_APP_DB_URL} from '../config';
 // import Button from "@mui/material/Button";
 // import Dialog from "@mui/material/Dialog";
 // import DialogActions from "@mui/material/DialogActions";
@@ -21,13 +22,13 @@ export const MyProducts = () => {
 
   const getPedidos = async () => {
     const { data: response } = await axios.get(
-      `http://dbtemp.devsmex.com:4000/pedido/${showSignIn.curp}`
+      `${REACT_APP_DB_URL}/pedido/${showSignIn.curp}`
     );
     setPedido(response);
   };
   // const getDetalles = async () => {
   //   const { data: response } = await axios.get(
-  //     `${DB_URL}/detalles/${id}`
+  //     `${REACT_APP_DB_URL}/detalles/${id}`
   //   );
 
   //   setDetalles(response);

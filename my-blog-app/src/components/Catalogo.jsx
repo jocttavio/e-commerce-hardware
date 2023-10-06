@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import "../styles/catalogo.css"
 import { Cards } from './Cards'
-
+import {REACT_APP_DB_URL} from '../config';
 
 // 
 export const Catalogo = ({title,categoric,allProducts,setAllProducts,total,setTotal,countProducts,setCountProducts,allPedido, setAllPedido}) => {
@@ -11,7 +11,7 @@ export const Catalogo = ({title,categoric,allProducts,setAllProducts,total,setTo
     const [product,setProduct] = useState([])
     //Peticion al servidor
     const loadProduct = async () => {
-        const response = await fetch(`http://dbtemp.devsmex.com:4000/productos/${categoric}`);
+        const response = await fetch(`${REACT_APP_DB_URL}/productos/${categoric}`);
         const data = await response.json();
         setProduct(data)
         

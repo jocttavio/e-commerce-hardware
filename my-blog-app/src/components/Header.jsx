@@ -9,6 +9,7 @@ import Cookies from "universal-cookie";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
+import {REACT_APP_DB_URL} from '../config';
 export const Header = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
@@ -74,13 +75,13 @@ export const Header = () => {
       const currentDate = new Date();  
       const prueba = currentDate.toISOString().split('T');
       const fecha = prueba[0];
-      const {data: pedido} = await axios.post(`http://dbtemp.devsmex.com:4000/pedido`,{
+      const {data: pedido} = await axios.post(`${REACT_APP_DB_URL}/pedido`,{
         fk_cliente: showSignIn.curp,
         fecha: fecha,
         total: total,
         cantidad: countProducts
       });
-      allPedido.map((product)=> axios.post(`http://dbtemp.devsmex.com:4000/detalles`, {
+      allPedido.map((product)=> axios.post(`${REACT_APP_DB_URL}/detalles`, {
         fk_pedido: pedido.id_pedido,
         fk_producto: product.id_producto
       }));

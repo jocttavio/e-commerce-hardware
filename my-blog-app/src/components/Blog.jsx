@@ -2,12 +2,13 @@ import React from "react";
 import { Cards } from "./Cards";
 import { useEffect } from "react";
 import { useState } from "react";
+import { REACT_APP_DB_URL } from "../config";
 // 
 export const Blog = () => {
   const [product, setProduct] = useState([]);
   //Peticion al servidor
   const loadProduct = async () => {
-    const response = await fetch(`http://dbtemp.devsmex.com:4000/alba`);
+    const response = await fetch(`${REACT_APP_DB_URL}/alba`);
     const data = await response.json();
     setProduct(data);
   };

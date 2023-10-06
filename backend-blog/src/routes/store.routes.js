@@ -29,9 +29,15 @@ const {
 
 } = require("../controllers/store.controller");
 
+const {insertBlockAccount, getValidateBlockAccount, updateAccountSessions,deleteBlockUser} = require('../controllers/user.controller');
 const router = Router();
 
 
+// Rutas para el login 
+router.get('/block-account/:email', getValidateBlockAccount);
+router.post('/insert-block-account', insertBlockAccount);
+router.put('/update-sessions/:id_account', updateAccountSessions);
+router.delete('/delete-block-user/:id_account', deleteBlockUser);
 //rutas para realizar acciones en las cuentas de usuarios
 router.get('/validate_account/:useremail,:password', getValidateAccount);
 router.get('/get_accounts', getAccounts);
