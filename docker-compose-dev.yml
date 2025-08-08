@@ -1,45 +1,20 @@
-
-#   postgres:
-#     image: postgres:14.0
-#     ports:
-#       - "5432:5432"
-#     environment:
-#       - POSTGRES_USER=${DB_USERNAME}
-#       - POSTGRES_PASSWORD=${DB_PASSWORD}
-#       - POSTGRES_DB=${DB_DATABASE}
-#     networks:
-#       - docker-network
-#     volumes:
-#       - postgres-data:/var/lib/postgresql/data
-
-  #     - "80:80"
-  #   environment:
-  #     - PGADMIN_DEFAULT_EMAIL=${PG_USERNAME}
-  #     - PGADMIN_DEFAULT_PASSWORD=${PG_PASSWORD}
-  #   networks:
-  #     - docker-network
-
-version: "3.9"
 networks:
-  docker-network:
+  ecommerce-net:
     driver: bridge
-  net-tecnomex:
-    external: true
 services:
-  my-blog-app:
-    container_name: my-blog-app
+  app:
+    container_name: app
     build:
       context: ./my-blog-app
       dockerfile: Dockerfile.dev
     ports:
-      - "3001:3000"
-    volumes:
-      - ./my-blog-app:/app
+      - "3000:3000"
+    # volumes:
+    #   - ./my-blog-app:/app
     links:
       - backend-blog
     networks:
-      - net-tecnomex
-      - docker-network
+      - ecommerce-net
   backend-blog:
     container_name: backend-blog
     build:
@@ -47,9 +22,27 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "4000:4000"
-    volumes:
-      - ./backend-blog:/app
+    # volumes:
+    #   - ./backend-blog:/app
     networks:
-      - net-tecnomex
-      - docker-network
-      
+      - ecommerce-net
+  postgres:
+    image: postgres:14.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+    networks:
+      - ecommerce-net
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # - "80:80"
+    # environment:
+    #   - PGADMIN_DEFAULT_EMAIL=${PG_USERNAME}
+    #   - PGADMIN_DEFAULT_PASSWORD=${PG_PASSWORD}
+    # networks:
+    #   - docker-network
+volumes:
+  postgres-data:

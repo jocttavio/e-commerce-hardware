@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16-alpine
 
 RUN npm install -g nodemon
 
@@ -6,8 +6,14 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
+# Copiamos solo los archivos necesarios para instalar dependencias
+COPY package*.json ./
+
 RUN npm install
 
-EXPOSE 3000
+# Asegúrate de NO hacer COPY . . después del npm install si estás usando volumes, o se sobreescribirá el contenido al levantar el contenedor.
+COPY . .
+
+# EXPOSE 3000
 
 CMD ["nodemon", "index.js"] 

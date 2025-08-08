@@ -109,20 +109,3 @@ http://localhost:4000/alba
       "stars":4,
       "image_name": "tools.png"
 }
-
-DB_USER = root
-DB_PASSWORD = password2022
-DB_HOST = '172.20.0.1'
-DB_PORT = 5432
-DB_DATABASE = Ferreteria
-
-
-
-docker-compose 
-DB_DATABASE=Ferreteria
-DB_USERNAME=root
-DB_PASSWORD=password2022
-
-PG_USERNAME=admin@domain.com
-PG_PASSWORD=password
-
